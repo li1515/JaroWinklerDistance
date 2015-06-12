@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0685495c0e954dbeb4fd09b20d020b57" Name="Diagram1" ZoomLevel="65">
+        <EntityTypeShape EntityType="AdresyCZModel2.castObce" Width="1.5" PointX="11.25" PointY="11.5" />
+        <EntityTypeShape EntityType="AdresyCZModel2.obce" Width="1.5" PointX="8.75" PointY="11.75" />
+        <EntityTypeShape EntityType="AdresyCZModel2.psc" Width="1.5" PointX="4.25" PointY="11.875" />
+        <AssociationConnector Association="AdresyCZModel2.FK_obce_obce" />
+        <EntityTypeShape EntityType="AdresyCZModel2.allrec" Width="1.5" PointX="6.75" PointY="11.25" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

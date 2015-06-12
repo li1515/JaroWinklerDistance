@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AdresyCZModel1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="AdresyCZEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Adresas" EntityType="AdresyCZModel1.Adresa" />
+    <EntitySet Name="Casts" EntityType="AdresyCZModel1.Cast" />
+    <EntitySet Name="Obecs" EntityType="AdresyCZModel1.Obec" />
+    <EntitySet Name="Oblasts" EntityType="AdresyCZModel1.Oblast" />
+    <EntitySet Name="Queries" EntityType="AdresyCZModel1.Query" />
+    <EntitySet Name="Ulice" EntityType="AdresyCZModel1.Ulouse" />
+    <AssociationSet Name="FK_Adresa_Ulice" Association="AdresyCZModel1.FK_Adresa_Ulice">
+      <End Role="Ulouse" EntitySet="Ulice" />
+      <End Role="Adresa" EntitySet="Adresas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cast_Obec" Association="AdresyCZModel1.FK_Cast_Obec">
+      <End Role="Obec" EntitySet="Obecs" />
+      <End Role="Cast" EntitySet="Casts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ulice_Cast" Association="AdresyCZModel1.FK_Ulice_Cast">
+      <End Role="Cast" EntitySet="Casts" />
+      <End Role="Ulouse" EntitySet="Ulice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Obec_Oblast" Association="AdresyCZModel1.FK_Obec_Oblast">
+      <End Role="Oblast" EntitySet="Oblasts" />
+      <End Role="Obec" EntitySet="Obecs" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Adresa">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="uliceId" Nullable="false" />
+    <Property Type="Int32" Name="p" />
+    <Property Type="String" Name="o" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="e" />
+    <NavigationProperty Name="Ulouse" Relationship="AdresyCZModel1.FK_Adresa_Ulice" FromRole="Adresa" ToRole="Ulouse" />
+  </EntityType>
+  <EntityType Name="Cast">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="obecId" Nullable="false" />
+    <Property Type="String" Name="nazev" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="kod" Nullable="false" />
+    <Property Type="Int32" Name="minPsc" Nullable="false" />
+    <Property Type="Int32" Name="maxPsc" Nullable="false" />
+    <NavigationProperty Name="Obec" Relationship="AdresyCZModel1.FK_Cast_Obec" FromRole="Cast" ToRole="Obec" />
+    <NavigationProperty Name="Ulice" Relationship="AdresyCZModel1.FK_Ulice_Cast" FromRole="Cast" ToRole="Ulouse" />
+  </EntityType>
+  <EntityType Name="Obec">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="oblastId" Nullable="false" />
+    <Property Type="String" Name="nazev" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="kod" Nullable="false" />
+    <Property Type="Int32" Name="muzi" Nullable="false" />
+    <Property Type="Int32" Name="zeny" Nullable="false" />
+    <Property Type="Int32" Name="m15" Nullable="false" />
+    <Property Type="Int32" Name="z15" Nullable="false" />
+    <Property Type="Int32" Name="minPsc" Nullable="false" />
+    <Property Type="Int32" Name="maxPsc" Nullable="false" />
+    <NavigationProperty Name="Casts" Relationship="AdresyCZModel1.FK_Cast_Obec" FromRole="Obec" ToRole="Cast" />
+    <NavigationProperty Name="Oblast" Relationship="AdresyCZModel1.FK_Obec_Oblast" FromRole="Obec" ToRole="Oblast" />
+  </EntityType>
+  <EntityType Name="Oblast">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="nazev" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="okres" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="kraj" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Obecs" Relationship="AdresyCZModel1.FK_Obec_Oblast" FromRole="Oblast" ToRole="Obec" />
+  </EntityType>
+  <EntityType Name="Query">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="String" Name="Obce" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="minpsc" />
+    <Property Type="Int32" Name="maxpsc" />
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Ulouse">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="castId" Nullable="false" />
+    <Property Type="String" Name="nazev" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="kod" Nullable="false" />
+    <NavigationProperty Name="Adresas" Relationship="AdresyCZModel1.FK_Adresa_Ulice" FromRole="Ulouse" ToRole="Adresa" />
+    <NavigationProperty Name="Cast" Relationship="AdresyCZModel1.FK_Ulice_Cast" FromRole="Ulouse" ToRole="Cast" />
+  </EntityType>
+  <Association Name="FK_Adresa_Ulice">
+    <End Type="AdresyCZModel1.Ulouse" Role="Ulouse" Multiplicity="1" />
+    <End Type="AdresyCZModel1.Adresa" Role="Adresa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ulouse">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Adresa">
+        <PropertyRef Name="uliceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cast_Obec">
+    <End Type="AdresyCZModel1.Obec" Role="Obec" Multiplicity="1" />
+    <End Type="AdresyCZModel1.Cast" Role="Cast" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Obec">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Cast">
+        <PropertyRef Name="obecId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ulice_Cast">
+    <End Type="AdresyCZModel1.Cast" Role="Cast" Multiplicity="1" />
+    <End Type="AdresyCZModel1.Ulouse" Role="Ulouse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cast">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Ulouse">
+        <PropertyRef Name="castId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Obec_Oblast">
+    <End Type="AdresyCZModel1.Oblast" Role="Oblast" Multiplicity="1" />
+    <End Type="AdresyCZModel1.Obec" Role="Obec" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Oblast">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Obec">
+        <PropertyRef Name="oblastId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

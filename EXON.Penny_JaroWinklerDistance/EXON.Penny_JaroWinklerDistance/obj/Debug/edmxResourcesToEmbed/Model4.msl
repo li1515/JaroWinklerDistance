@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AdresyCZModel2StoreContainer" CdmEntityContainer="AdresyCZEntities2">
+    <EntitySetMapping Name="castObces">
+      <EntityTypeMapping TypeName="AdresyCZModel2.castObce">
+        <MappingFragment StoreEntitySet="castObce">
+          <ScalarProperty Name="P_Id" ColumnName="P_Id" />
+          <ScalarProperty Name="PSČ" ColumnName="PSČ" />
+          <ScalarProperty Name="Název_části_obce" ColumnName="Název části obce" />
+          <ScalarProperty Name="Kód_obce" ColumnName="Kód obce" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="obces">
+      <EntityTypeMapping TypeName="AdresyCZModel2.obce">
+        <MappingFragment StoreEntitySet="obce">
+          <ScalarProperty Name="Kód_obce" ColumnName="Kód obce" />
+          <ScalarProperty Name="Název_obce" ColumnName="Název obce" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pscs">
+      <EntityTypeMapping TypeName="AdresyCZModel2.psc">
+        <MappingFragment StoreEntitySet="psc">
+          <ScalarProperty Name="P_Id" ColumnName="P_Id" />
+          <ScalarProperty Name="PSČ" ColumnName="PSČ" />
+          <ScalarProperty Name="Název_obce" ColumnName="Název obce" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="allrecs">
+      <EntityTypeMapping TypeName="AdresyCZModel2.allrec">
+        <MappingFragment StoreEntitySet="allrecs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PSČ" ColumnName="PSČ" />
+          <ScalarProperty Name="Název_ulice" ColumnName="Název ulice" />
+          <ScalarProperty Name="Název_části_obce" ColumnName="Název části obce" />
+          <ScalarProperty Name="Kód_části_obce" ColumnName="Kód části obce" />
+          <ScalarProperty Name="Název_obce" ColumnName="Název obce" />
+          <ScalarProperty Name="Kód_obce" ColumnName="Kód obce" />
+          <ScalarProperty Name="Kód_ADM" ColumnName="Kód ADM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

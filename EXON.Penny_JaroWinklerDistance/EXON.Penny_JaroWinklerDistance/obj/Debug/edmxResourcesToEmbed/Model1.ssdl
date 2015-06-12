@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FlexiCaptureModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="FlexiCaptureModelStoreContainer">
+    <EntitySet Name="Penny_A5_bw" EntityType="FlexiCaptureModel.Store.Penny_A5_bw" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SeznamKrestnichJmen" EntityType="FlexiCaptureModel.Store.SeznamKrestnichJmen" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SeznamObci" EntityType="FlexiCaptureModel.Store.SeznamObci" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SeznamPrijmeni" EntityType="FlexiCaptureModel.Store.SeznamPrijmeni" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SeznamPSC" EntityType="FlexiCaptureModel.Store.SeznamPSC" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SeznamTitulu" EntityType="FlexiCaptureModel.Store.SeznamTitulu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SeznamUlic" EntityType="FlexiCaptureModel.Store.SeznamUlic" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="Penny_A5_bw">
+    <Key>
+      <PropertyRef Name="Zdroj_obrazu" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="250" />
+    <Property Name="Titul" Type="nvarchar" MaxLength="250" />
+    <Property Name="Oslovení" Type="nvarchar" MaxLength="50" />
+    <Property Name="Jméno" Type="nvarchar" MaxLength="250" />
+    <Property Name="JmenoNalezeno" Type="bit" />
+    <Property Name="Příjmení" Type="nvarchar" MaxLength="250" />
+    <Property Name="PrijmeniNalezeno" Type="bit" />
+    <Property Name="Ulice" Type="nvarchar" MaxLength="250" />
+    <Property Name="UliceNalezeno" Type="bit" />
+    <Property Name="Číslo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Město" Type="nvarchar" MaxLength="250" />
+    <Property Name="MestoNalezeno" Type="bit" />
+    <Property Name="PSČ" Type="nvarchar" MaxLength="50" />
+    <Property Name="PscNalezeno" Type="bit" />
+    <Property Name="Datum_narození" Type="nvarchar" MaxLength="250" />
+    <Property Name="Počet_osob_v_domácnosti" Type="nvarchar" MaxLength="50" />
+    <Property Name="Telefonní_číslo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="250" />
+    <Property Name="Název_dávky" Type="nvarchar" MaxLength="250" />
+    <Property Name="Zdroj_obrazu" Type="nvarchar" Nullable="false" MaxLength="300" />
+    <Property Name="Exportovano" Type="nvarchar" MaxLength="250" />
+    <Property Name="Overeno" Type="bit" />
+    <Property Name="Kontrola_1" Type="nvarchar" MaxLength="250" />
+    <Property Name="Kontrola_2" Type="nvarchar" MaxLength="250" />
+    <Property Name="Kontrola_3" Type="nvarchar" MaxLength="250" />
+    <Property Name="Čas_exportu_dokumentu" Type="nvarchar" MaxLength="250" />
+    <Property Name="Čas_poslední_úpravy_dokumentu" Type="nvarchar" MaxLength="250" />
+    <Property Name="Čas_rozpoznání_dokumentu" Type="nvarchar" MaxLength="250" />
+    <Property Name="Čas_vytvoření_dokumentu" Type="nvarchar" MaxLength="250" />
+    <Property Name="Číslo_dokumentu" Type="nvarchar" MaxLength="250" />
+    <Property Name="Poslední_editor_dokumentu" Type="nvarchar" MaxLength="250" />
+    <Property Name="Název_definice_dokumentu" Type="nvarchar" MaxLength="250" />
+    <Property Name="Počet_dokumentů_v_dávce" Type="nvarchar" MaxLength="250" />
+    <Property Name="Počet_neurčitých_znaků" Type="nvarchar" MaxLength="250" />
+    <Property Name="Počet_rozpoznaných_znaků" Type="nvarchar" MaxLength="250" />
+    <Property Name="Počet_stránek_dávky" Type="nvarchar" MaxLength="250" />
+    <Property Name="PAGE_IMAGES" Type="nvarchar" MaxLength="250" />
+    <Property Name="Pole_pro_typ_služby1" Type="nvarchar" MaxLength="250" />
+    <Property Name="E_mail" Type="nvarchar" MaxLength="128" />
+    <Property Name="Kontrola_4" Type="nvarchar" MaxLength="250" />
+    <Property Name="Kontrola_5" Type="nvarchar" MaxLength="250" />
+    <Property Name="Kontrola_6" Type="nvarchar" MaxLength="250" />
+    <Property Name="Platnost" Type="bit" Nullable="false" />
+    <Property Name="Processed" Type="bit" />
+  </EntityType>
+  <EntityType Name="SeznamKrestnichJmen">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Jmeno" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Cetnost" Type="int" />
+  </EntityType>
+  <EntityType Name="SeznamObci">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NazevObce" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="SeznamPrijmeni">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Prijmeni" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="Cetnost" Type="int" />
+  </EntityType>
+  <EntityType Name="SeznamPSC">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PSC" Type="nvarchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="SeznamTitulu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Titul" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SeznamUlic">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NazevUlice" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+</Schema>

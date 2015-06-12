@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AdresyCZModel2.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="AdresyCZModel2StoreContainer">
+    <EntitySet Name="allrecs" EntityType="AdresyCZModel2.Store.allrecs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="castObce" EntityType="AdresyCZModel2.Store.castObce" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="obce" EntityType="AdresyCZModel2.Store.obce" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="psc" EntityType="AdresyCZModel2.Store.psc" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_obce_obce" Association="AdresyCZModel2.Store.FK_obce_obce">
+      <End Role="obce" EntitySet="obce" />
+      <End Role="obce1" EntitySet="obce" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="allrecs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Kód ADM" Type="int" />
+    <Property Name="Kód obce" Type="int" />
+    <Property Name="Název obce" Type="varchar" MaxLength="50" />
+    <Property Name="Kód části obce" Type="varchar" MaxLength="50" />
+    <Property Name="Název části obce" Type="varchar" MaxLength="50" />
+    <Property Name="Název ulice" Type="varchar" MaxLength="50" />
+    <Property Name="PSČ" Type="int" />
+    <Property Name="ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="castObce">
+    <Key>
+      <PropertyRef Name="P_Id" />
+    </Key>
+    <Property Name="Kód obce" Type="int" />
+    <Property Name="Název části obce" Type="varchar" MaxLength="50" />
+    <Property Name="PSČ" Type="int" />
+    <Property Name="P_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="obce">
+    <Key>
+      <PropertyRef Name="Kód obce" />
+    </Key>
+    <Property Name="Název obce" Type="varchar" MaxLength="50" />
+    <Property Name="Kód obce" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="psc">
+    <Key>
+      <PropertyRef Name="P_Id" />
+    </Key>
+    <Property Name="Název obce" Type="varchar" MaxLength="50" />
+    <Property Name="PSČ" Type="int" />
+    <Property Name="P_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <Association Name="FK_obce_obce">
+    <End Role="obce" Type="AdresyCZModel2.Store.obce" Multiplicity="1" />
+    <End Role="obce1" Type="AdresyCZModel2.Store.obce" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="obce">
+        <PropertyRef Name="Kód obce" />
+      </Principal>
+      <Dependent Role="obce1">
+        <PropertyRef Name="Kód obce" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FlexiCaptureModelStoreContainer" CdmEntityContainer="FlexiCaptureEntities">
+    <EntitySetMapping Name="SeznamKrestnichJmen">
+      <EntityTypeMapping TypeName="FlexiCaptureModel.SeznamKrestnichJmen">
+        <MappingFragment StoreEntitySet="SeznamKrestnichJmen">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Jmeno" ColumnName="Jmeno" />
+          <ScalarProperty Name="Cetnost" ColumnName="Cetnost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SeznamObci">
+      <EntityTypeMapping TypeName="FlexiCaptureModel.SeznamObci">
+        <MappingFragment StoreEntitySet="SeznamObci">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NazevObce" ColumnName="NazevObce" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SeznamPrijmeni">
+      <EntityTypeMapping TypeName="FlexiCaptureModel.SeznamPrijmeni">
+        <MappingFragment StoreEntitySet="SeznamPrijmeni">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Prijmeni" ColumnName="Prijmeni" />
+          <ScalarProperty Name="Cetnost" ColumnName="Cetnost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SeznamPSC">
+      <EntityTypeMapping TypeName="FlexiCaptureModel.SeznamPSC">
+        <MappingFragment StoreEntitySet="SeznamPSC">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PSC" ColumnName="PSC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SeznamTitulu">
+      <EntityTypeMapping TypeName="FlexiCaptureModel.SeznamTitulu">
+        <MappingFragment StoreEntitySet="SeznamTitulu">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Titul" ColumnName="Titul" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SeznamUlic">
+      <EntityTypeMapping TypeName="FlexiCaptureModel.SeznamUlic">
+        <MappingFragment StoreEntitySet="SeznamUlic">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NazevUlice" ColumnName="NazevUlice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Penny_A5_bw">
+      <EntityTypeMapping TypeName="FlexiCaptureModel.Penny_A5_bw">
+        <MappingFragment StoreEntitySet="Penny_A5_bw">
+          <ScalarProperty Name="Processed" ColumnName="Processed" />
+          <ScalarProperty Name="Platnost" ColumnName="Platnost" />
+          <ScalarProperty Name="Kontrola_6" ColumnName="Kontrola_6" />
+          <ScalarProperty Name="Kontrola_5" ColumnName="Kontrola_5" />
+          <ScalarProperty Name="Kontrola_4" ColumnName="Kontrola_4" />
+          <ScalarProperty Name="E_mail" ColumnName="E_mail" />
+          <ScalarProperty Name="Pole_pro_typ_služby1" ColumnName="Pole_pro_typ_služby1" />
+          <ScalarProperty Name="PAGE_IMAGES" ColumnName="PAGE_IMAGES" />
+          <ScalarProperty Name="Počet_stránek_dávky" ColumnName="Počet_stránek_dávky" />
+          <ScalarProperty Name="Počet_rozpoznaných_znaků" ColumnName="Počet_rozpoznaných_znaků" />
+          <ScalarProperty Name="Počet_neurčitých_znaků" ColumnName="Počet_neurčitých_znaků" />
+          <ScalarProperty Name="Počet_dokumentů_v_dávce" ColumnName="Počet_dokumentů_v_dávce" />
+          <ScalarProperty Name="Název_definice_dokumentu" ColumnName="Název_definice_dokumentu" />
+          <ScalarProperty Name="Poslední_editor_dokumentu" ColumnName="Poslední_editor_dokumentu" />
+          <ScalarProperty Name="Číslo_dokumentu" ColumnName="Číslo_dokumentu" />
+          <ScalarProperty Name="Čas_vytvoření_dokumentu" ColumnName="Čas_vytvoření_dokumentu" />
+          <ScalarProperty Name="Čas_rozpoznání_dokumentu" ColumnName="Čas_rozpoznání_dokumentu" />
+          <ScalarProperty Name="Čas_poslední_úpravy_dokumentu" ColumnName="Čas_poslední_úpravy_dokumentu" />
+          <ScalarProperty Name="Čas_exportu_dokumentu" ColumnName="Čas_exportu_dokumentu" />
+          <ScalarProperty Name="Kontrola_3" ColumnName="Kontrola_3" />
+          <ScalarProperty Name="Kontrola_2" ColumnName="Kontrola_2" />
+          <ScalarProperty Name="Kontrola_1" ColumnName="Kontrola_1" />
+          <ScalarProperty Name="Overeno" ColumnName="Overeno" />
+          <ScalarProperty Name="Exportovano" ColumnName="Exportovano" />
+          <ScalarProperty Name="Zdroj_obrazu" ColumnName="Zdroj_obrazu" />
+          <ScalarProperty Name="Název_dávky" ColumnName="Název_dávky" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Telefonní_číslo" ColumnName="Telefonní_číslo" />
+          <ScalarProperty Name="Počet_osob_v_domácnosti" ColumnName="Počet_osob_v_domácnosti" />
+          <ScalarProperty Name="Datum_narození" ColumnName="Datum_narození" />
+          <ScalarProperty Name="PscNalezeno" ColumnName="PscNalezeno" />
+          <ScalarProperty Name="PSČ" ColumnName="PSČ" />
+          <ScalarProperty Name="MestoNalezeno" ColumnName="MestoNalezeno" />
+          <ScalarProperty Name="Město" ColumnName="Město" />
+          <ScalarProperty Name="Číslo" ColumnName="Číslo" />
+          <ScalarProperty Name="UliceNalezeno" ColumnName="UliceNalezeno" />
+          <ScalarProperty Name="Ulice" ColumnName="Ulice" />
+          <ScalarProperty Name="PrijmeniNalezeno" ColumnName="PrijmeniNalezeno" />
+          <ScalarProperty Name="Příjmení" ColumnName="Příjmení" />
+          <ScalarProperty Name="JmenoNalezeno" ColumnName="JmenoNalezeno" />
+          <ScalarProperty Name="Jméno" ColumnName="Jméno" />
+          <ScalarProperty Name="Oslovení" ColumnName="Oslovení" />
+          <ScalarProperty Name="Titul" ColumnName="Titul" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

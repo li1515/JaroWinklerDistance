@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AdresyCZModel2.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="AdresyCZModel2StoreContainer">
+          <EntitySet Name="allrecs" EntityType="AdresyCZModel2.Store.allrecs" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="castObce" EntityType="AdresyCZModel2.Store.castObce" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="obce" EntityType="AdresyCZModel2.Store.obce" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="psc" EntityType="AdresyCZModel2.Store.psc" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_obce_obce" Association="AdresyCZModel2.Store.FK_obce_obce">
+            <End Role="obce" EntitySet="obce" />
+            <End Role="obce1" EntitySet="obce" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="allrecs">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Kód ADM" Type="int" />
+          <Property Name="Kód obce" Type="int" />
+          <Property Name="Název obce" Type="varchar" MaxLength="50" />
+          <Property Name="Kód části obce" Type="varchar" MaxLength="50" />
+          <Property Name="Název části obce" Type="varchar" MaxLength="50" />
+          <Property Name="Název ulice" Type="varchar" MaxLength="50" />
+          <Property Name="PSČ" Type="int" />
+          <Property Name="ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="castObce">
+          <Key>
+            <PropertyRef Name="P_Id" />
+          </Key>
+          <Property Name="Kód obce" Type="int" />
+          <Property Name="Název části obce" Type="varchar" MaxLength="50" />
+          <Property Name="PSČ" Type="int" />
+          <Property Name="P_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="obce">
+          <Key>
+            <PropertyRef Name="Kód obce" />
+          </Key>
+          <Property Name="Název obce" Type="varchar" MaxLength="50" />
+          <Property Name="Kód obce" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="psc">
+          <Key>
+            <PropertyRef Name="P_Id" />
+          </Key>
+          <Property Name="Název obce" Type="varchar" MaxLength="50" />
+          <Property Name="PSČ" Type="int" />
+          <Property Name="P_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <Association Name="FK_obce_obce">
+          <End Role="obce" Type="AdresyCZModel2.Store.obce" Multiplicity="1" />
+          <End Role="obce1" Type="AdresyCZModel2.Store.obce" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="obce">
+              <PropertyRef Name="Kód obce" />
+            </Principal>
+            <Dependent Role="obce1">
+              <PropertyRef Name="Kód obce" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AdresyCZModel2" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="AdresyCZEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="castObces" EntityType="AdresyCZModel2.castObce" />
+          <EntitySet Name="obces" EntityType="AdresyCZModel2.obce" />
+          <EntitySet Name="pscs" EntityType="AdresyCZModel2.psc" />
+          <AssociationSet Name="FK_obce_obce" Association="AdresyCZModel2.FK_obce_obce">
+            <End Role="obce" EntitySet="obces" />
+            <End Role="obce1" EntitySet="obces" />
+          </AssociationSet>
+          <EntitySet Name="allrecs" EntityType="AdresyCZModel2.allrec" />
+        </EntityContainer>
+        <EntityType Name="castObce">
+          <Key>
+            <PropertyRef Name="P_Id" />
+          </Key>
+          <Property Type="Int32" Name="Kód_obce" />
+          <Property Type="String" Name="Název_části_obce" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="PSČ" />
+          <Property Type="Int32" Name="P_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="obce">
+          <Key>
+            <PropertyRef Name="Kód_obce" />
+          </Key>
+          <Property Type="String" Name="Název_obce" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Kód_obce" Nullable="false" />
+          <NavigationProperty Name="obce1" Relationship="AdresyCZModel2.FK_obce_obce" FromRole="obce" ToRole="obce1" />
+          <NavigationProperty Name="obce2" Relationship="AdresyCZModel2.FK_obce_obce" FromRole="obce1" ToRole="obce" />
+        </EntityType>
+        <EntityType Name="psc">
+          <Key>
+            <PropertyRef Name="P_Id" />
+          </Key>
+          <Property Type="String" Name="Název_obce" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="PSČ" />
+          <Property Type="Int32" Name="P_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <Association Name="FK_obce_obce">
+          <End Type="AdresyCZModel2.obce" Role="obce" Multiplicity="1" />
+          <End Type="AdresyCZModel2.obce" Role="obce1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="obce">
+              <PropertyRef Name="Kód_obce" />
+            </Principal>
+            <Dependent Role="obce1">
+              <PropertyRef Name="Kód_obce" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="allrec">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="Kód_ADM" />
+          <Property Type="Int32" Name="Kód_obce" />
+          <Property Type="String" Name="Název_obce" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Kód_části_obce" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Název_části_obce" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Název_ulice" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="PSČ" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AdresyCZModel2StoreContainer" CdmEntityContainer="AdresyCZEntities2">
+          <EntitySetMapping Name="castObces">
+            <EntityTypeMapping TypeName="AdresyCZModel2.castObce">
+              <MappingFragment StoreEntitySet="castObce">
+                <ScalarProperty Name="P_Id" ColumnName="P_Id" />
+                <ScalarProperty Name="PSČ" ColumnName="PSČ" />
+                <ScalarProperty Name="Název_části_obce" ColumnName="Název části obce" />
+                <ScalarProperty Name="Kód_obce" ColumnName="Kód obce" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="obces">
+            <EntityTypeMapping TypeName="AdresyCZModel2.obce">
+              <MappingFragment StoreEntitySet="obce">
+                <ScalarProperty Name="Kód_obce" ColumnName="Kód obce" />
+                <ScalarProperty Name="Název_obce" ColumnName="Název obce" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pscs">
+            <EntityTypeMapping TypeName="AdresyCZModel2.psc">
+              <MappingFragment StoreEntitySet="psc">
+                <ScalarProperty Name="P_Id" ColumnName="P_Id" />
+                <ScalarProperty Name="PSČ" ColumnName="PSČ" />
+                <ScalarProperty Name="Název_obce" ColumnName="Název obce" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="allrecs">
+            <EntityTypeMapping TypeName="AdresyCZModel2.allrec">
+              <MappingFragment StoreEntitySet="allrecs">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PSČ" ColumnName="PSČ" />
+                <ScalarProperty Name="Název_ulice" ColumnName="Název ulice" />
+                <ScalarProperty Name="Název_části_obce" ColumnName="Název části obce" />
+                <ScalarProperty Name="Kód_části_obce" ColumnName="Kód části obce" />
+                <ScalarProperty Name="Název_obce" ColumnName="Název obce" />
+                <ScalarProperty Name="Kód_obce" ColumnName="Kód obce" />
+                <ScalarProperty Name="Kód_ADM" ColumnName="Kód ADM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

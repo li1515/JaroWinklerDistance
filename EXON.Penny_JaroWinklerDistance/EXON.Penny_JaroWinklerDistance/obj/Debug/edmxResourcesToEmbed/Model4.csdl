@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AdresyCZModel2" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="AdresyCZEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="castObces" EntityType="AdresyCZModel2.castObce" />
+    <EntitySet Name="obces" EntityType="AdresyCZModel2.obce" />
+    <EntitySet Name="pscs" EntityType="AdresyCZModel2.psc" />
+    <AssociationSet Name="FK_obce_obce" Association="AdresyCZModel2.FK_obce_obce">
+      <End Role="obce" EntitySet="obces" />
+      <End Role="obce1" EntitySet="obces" />
+    </AssociationSet>
+    <EntitySet Name="allrecs" EntityType="AdresyCZModel2.allrec" />
+  </EntityContainer>
+  <EntityType Name="castObce">
+    <Key>
+      <PropertyRef Name="P_Id" />
+    </Key>
+    <Property Type="Int32" Name="Kód_obce" />
+    <Property Type="String" Name="Název_části_obce" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="PSČ" />
+    <Property Type="Int32" Name="P_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="obce">
+    <Key>
+      <PropertyRef Name="Kód_obce" />
+    </Key>
+    <Property Type="String" Name="Název_obce" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Kód_obce" Nullable="false" />
+    <NavigationProperty Name="obce1" Relationship="AdresyCZModel2.FK_obce_obce" FromRole="obce" ToRole="obce1" />
+    <NavigationProperty Name="obce2" Relationship="AdresyCZModel2.FK_obce_obce" FromRole="obce1" ToRole="obce" />
+  </EntityType>
+  <EntityType Name="psc">
+    <Key>
+      <PropertyRef Name="P_Id" />
+    </Key>
+    <Property Type="String" Name="Název_obce" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="PSČ" />
+    <Property Type="Int32" Name="P_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <Association Name="FK_obce_obce">
+    <End Type="AdresyCZModel2.obce" Role="obce" Multiplicity="1" />
+    <End Type="AdresyCZModel2.obce" Role="obce1" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="obce">
+        <PropertyRef Name="Kód_obce" />
+      </Principal>
+      <Dependent Role="obce1">
+        <PropertyRef Name="Kód_obce" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="allrec">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="Kód_ADM" />
+    <Property Type="Int32" Name="Kód_obce" />
+    <Property Type="String" Name="Název_obce" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Kód_části_obce" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Název_části_obce" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Název_ulice" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="PSČ" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+  </EntityType>
+</Schema>

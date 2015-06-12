@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AdresyCZModel1StoreContainer" CdmEntityContainer="AdresyCZEntities1">
+    <EntitySetMapping Name="Adresas">
+      <EntityTypeMapping TypeName="AdresyCZModel1.Adresa">
+        <MappingFragment StoreEntitySet="Adresa">
+          <ScalarProperty Name="e" ColumnName="e" />
+          <ScalarProperty Name="o" ColumnName="o" />
+          <ScalarProperty Name="p" ColumnName="p" />
+          <ScalarProperty Name="uliceId" ColumnName="uliceId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Casts">
+      <EntityTypeMapping TypeName="AdresyCZModel1.Cast">
+        <MappingFragment StoreEntitySet="Cast">
+          <ScalarProperty Name="maxPsc" ColumnName="maxPsc" />
+          <ScalarProperty Name="minPsc" ColumnName="minPsc" />
+          <ScalarProperty Name="kod" ColumnName="kod" />
+          <ScalarProperty Name="nazev" ColumnName="nazev" />
+          <ScalarProperty Name="obecId" ColumnName="obecId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Obecs">
+      <EntityTypeMapping TypeName="AdresyCZModel1.Obec">
+        <MappingFragment StoreEntitySet="Obec">
+          <ScalarProperty Name="maxPsc" ColumnName="maxPsc" />
+          <ScalarProperty Name="minPsc" ColumnName="minPsc" />
+          <ScalarProperty Name="z15" ColumnName="z15" />
+          <ScalarProperty Name="m15" ColumnName="m15" />
+          <ScalarProperty Name="zeny" ColumnName="zeny" />
+          <ScalarProperty Name="muzi" ColumnName="muzi" />
+          <ScalarProperty Name="kod" ColumnName="kod" />
+          <ScalarProperty Name="nazev" ColumnName="nazev" />
+          <ScalarProperty Name="oblastId" ColumnName="oblastId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Oblasts">
+      <EntityTypeMapping TypeName="AdresyCZModel1.Oblast">
+        <MappingFragment StoreEntitySet="Oblast">
+          <ScalarProperty Name="kraj" ColumnName="kraj" />
+          <ScalarProperty Name="okres" ColumnName="okres" />
+          <ScalarProperty Name="nazev" ColumnName="nazev" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Queries">
+      <EntityTypeMapping TypeName="AdresyCZModel1.Query">
+        <MappingFragment StoreEntitySet="Query">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="maxpsc" ColumnName="maxpsc" />
+          <ScalarProperty Name="minpsc" ColumnName="minpsc" />
+          <ScalarProperty Name="Obce" ColumnName="Obce" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ulice">
+      <EntityTypeMapping TypeName="AdresyCZModel1.Ulouse">
+        <MappingFragment StoreEntitySet="Ulice">
+          <ScalarProperty Name="kod" ColumnName="kod" />
+          <ScalarProperty Name="nazev" ColumnName="nazev" />
+          <ScalarProperty Name="castId" ColumnName="castId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

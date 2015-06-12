@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FlexiCaptureModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="FlexiCaptureModelStoreContainer">
+          <EntitySet Name="Penny_A5_bw" EntityType="FlexiCaptureModel.Store.Penny_A5_bw" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SeznamKrestnichJmen" EntityType="FlexiCaptureModel.Store.SeznamKrestnichJmen" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SeznamObci" EntityType="FlexiCaptureModel.Store.SeznamObci" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SeznamPrijmeni" EntityType="FlexiCaptureModel.Store.SeznamPrijmeni" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SeznamPSC" EntityType="FlexiCaptureModel.Store.SeznamPSC" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SeznamTitulu" EntityType="FlexiCaptureModel.Store.SeznamTitulu" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SeznamUlic" EntityType="FlexiCaptureModel.Store.SeznamUlic" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Penny_A5_bw">
+          <Key>
+            <PropertyRef Name="Zdroj_obrazu" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="250" />
+          <Property Name="Titul" Type="nvarchar" MaxLength="250" />
+          <Property Name="Oslovení" Type="nvarchar" MaxLength="50" />
+          <Property Name="Jméno" Type="nvarchar" MaxLength="250" />
+          <Property Name="JmenoNalezeno" Type="bit" />
+          <Property Name="Příjmení" Type="nvarchar" MaxLength="250" />
+          <Property Name="PrijmeniNalezeno" Type="bit" />
+          <Property Name="Ulice" Type="nvarchar" MaxLength="250" />
+          <Property Name="UliceNalezeno" Type="bit" />
+          <Property Name="Číslo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Město" Type="nvarchar" MaxLength="250" />
+          <Property Name="MestoNalezeno" Type="bit" />
+          <Property Name="PSČ" Type="nvarchar" MaxLength="50" />
+          <Property Name="PscNalezeno" Type="bit" />
+          <Property Name="Datum_narození" Type="nvarchar" MaxLength="250" />
+          <Property Name="Počet_osob_v_domácnosti" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefonní_číslo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="250" />
+          <Property Name="Název_dávky" Type="nvarchar" MaxLength="250" />
+          <Property Name="Zdroj_obrazu" Type="nvarchar" Nullable="false" MaxLength="300" />
+          <Property Name="Exportovano" Type="nvarchar" MaxLength="250" />
+          <Property Name="Overeno" Type="bit" />
+          <Property Name="Kontrola_1" Type="nvarchar" MaxLength="250" />
+          <Property Name="Kontrola_2" Type="nvarchar" MaxLength="250" />
+          <Property Name="Kontrola_3" Type="nvarchar" MaxLength="250" />
+          <Property Name="Čas_exportu_dokumentu" Type="nvarchar" MaxLength="250" />
+          <Property Name="Čas_poslední_úpravy_dokumentu" Type="nvarchar" MaxLength="250" />
+          <Property Name="Čas_rozpoznání_dokumentu" Type="nvarchar" MaxLength="250" />
+          <Property Name="Čas_vytvoření_dokumentu" Type="nvarchar" MaxLength="250" />
+          <Property Name="Číslo_dokumentu" Type="nvarchar" MaxLength="250" />
+          <Property Name="Poslední_editor_dokumentu" Type="nvarchar" MaxLength="250" />
+          <Property Name="Název_definice_dokumentu" Type="nvarchar" MaxLength="250" />
+          <Property Name="Počet_dokumentů_v_dávce" Type="nvarchar" MaxLength="250" />
+          <Property Name="Počet_neurčitých_znaků" Type="nvarchar" MaxLength="250" />
+          <Property Name="Počet_rozpoznaných_znaků" Type="nvarchar" MaxLength="250" />
+          <Property Name="Počet_stránek_dávky" Type="nvarchar" MaxLength="250" />
+          <Property Name="PAGE_IMAGES" Type="nvarchar" MaxLength="250" />
+          <Property Name="Pole_pro_typ_služby1" Type="nvarchar" MaxLength="250" />
+          <Property Name="E_mail" Type="nvarchar" MaxLength="128" />
+          <Property Name="Kontrola_4" Type="nvarchar" MaxLength="250" />
+          <Property Name="Kontrola_5" Type="nvarchar" MaxLength="250" />
+          <Property Name="Kontrola_6" Type="nvarchar" MaxLength="250" />
+          <Property Name="Platnost" Type="bit" Nullable="false" />
+          <Property Name="Processed" Type="bit" />
+        </EntityType>
+        <EntityType Name="SeznamKrestnichJmen">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Jmeno" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Cetnost" Type="int" />
+        </EntityType>
+        <EntityType Name="SeznamObci">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NazevObce" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="SeznamPrijmeni">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Prijmeni" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="Cetnost" Type="int" />
+        </EntityType>
+        <EntityType Name="SeznamPSC">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PSC" Type="nvarchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="SeznamTitulu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Titul" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SeznamUlic">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NazevUlice" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FlexiCaptureModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="FlexiCaptureEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="SeznamKrestnichJmen" EntityType="FlexiCaptureModel.SeznamKrestnichJmen" />
+          <EntitySet Name="SeznamObci" EntityType="FlexiCaptureModel.SeznamObci" />
+          <EntitySet Name="SeznamPrijmeni" EntityType="FlexiCaptureModel.SeznamPrijmeni" />
+          <EntitySet Name="SeznamPSC" EntityType="FlexiCaptureModel.SeznamPSC" />
+          <EntitySet Name="SeznamTitulu" EntityType="FlexiCaptureModel.SeznamTitulu" />
+          <EntitySet Name="SeznamUlic" EntityType="FlexiCaptureModel.SeznamUlic" />
+          <EntitySet Name="Penny_A5_bw" EntityType="FlexiCaptureModel.Penny_A5_bw" />
+        </EntityContainer>
+        <EntityType Name="SeznamKrestnichJmen">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Jmeno" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Cetnost" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SeznamObci">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NazevObce" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="SeznamPrijmeni">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Prijmeni" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="Cetnost" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SeznamPSC">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PSC" Type="String" MaxLength="5" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="SeznamTitulu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Titul" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="SeznamUlic">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NazevUlice" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Penny_A5_bw">
+          <Key>
+            <PropertyRef Name="Zdroj_obrazu" />
+          </Key>
+          <Property Type="String" Name="ID" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Titul" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Oslovení" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Jméno" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="JmenoNalezeno" />
+          <Property Type="String" Name="Příjmení" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="PrijmeniNalezeno" />
+          <Property Type="String" Name="Ulice" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="UliceNalezeno" />
+          <Property Type="String" Name="Číslo" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Město" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="MestoNalezeno" />
+          <Property Type="String" Name="PSČ" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="PscNalezeno" />
+          <Property Type="String" Name="Datum_narození" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Počet_osob_v_domácnosti" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Telefonní_číslo" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Název_dávky" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Zdroj_obrazu" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Exportovano" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Overeno" />
+          <Property Type="String" Name="Kontrola_1" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Kontrola_2" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Kontrola_3" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Čas_exportu_dokumentu" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Čas_poslední_úpravy_dokumentu" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Čas_rozpoznání_dokumentu" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Čas_vytvoření_dokumentu" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Číslo_dokumentu" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Poslední_editor_dokumentu" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Název_definice_dokumentu" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Počet_dokumentů_v_dávce" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Počet_neurčitých_znaků" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Počet_rozpoznaných_znaků" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Počet_stránek_dávky" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PAGE_IMAGES" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Pole_pro_typ_služby1" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="E_mail" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Kontrola_4" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Kontrola_5" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Kontrola_6" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Platnost" Nullable="false" />
+          <Property Type="Boolean" Name="Processed" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FlexiCaptureModelStoreContainer" CdmEntityContainer="FlexiCaptureEntities">
+          <EntitySetMapping Name="SeznamKrestnichJmen">
+            <EntityTypeMapping TypeName="FlexiCaptureModel.SeznamKrestnichJmen">
+              <MappingFragment StoreEntitySet="SeznamKrestnichJmen">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Jmeno" ColumnName="Jmeno" />
+                <ScalarProperty Name="Cetnost" ColumnName="Cetnost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SeznamObci">
+            <EntityTypeMapping TypeName="FlexiCaptureModel.SeznamObci">
+              <MappingFragment StoreEntitySet="SeznamObci">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NazevObce" ColumnName="NazevObce" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SeznamPrijmeni">
+            <EntityTypeMapping TypeName="FlexiCaptureModel.SeznamPrijmeni">
+              <MappingFragment StoreEntitySet="SeznamPrijmeni">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Prijmeni" ColumnName="Prijmeni" />
+                <ScalarProperty Name="Cetnost" ColumnName="Cetnost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SeznamPSC">
+            <EntityTypeMapping TypeName="FlexiCaptureModel.SeznamPSC">
+              <MappingFragment StoreEntitySet="SeznamPSC">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PSC" ColumnName="PSC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SeznamTitulu">
+            <EntityTypeMapping TypeName="FlexiCaptureModel.SeznamTitulu">
+              <MappingFragment StoreEntitySet="SeznamTitulu">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Titul" ColumnName="Titul" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SeznamUlic">
+            <EntityTypeMapping TypeName="FlexiCaptureModel.SeznamUlic">
+              <MappingFragment StoreEntitySet="SeznamUlic">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NazevUlice" ColumnName="NazevUlice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Penny_A5_bw">
+            <EntityTypeMapping TypeName="FlexiCaptureModel.Penny_A5_bw">
+              <MappingFragment StoreEntitySet="Penny_A5_bw">
+                <ScalarProperty Name="Processed" ColumnName="Processed" />
+                <ScalarProperty Name="Platnost" ColumnName="Platnost" />
+                <ScalarProperty Name="Kontrola_6" ColumnName="Kontrola_6" />
+                <ScalarProperty Name="Kontrola_5" ColumnName="Kontrola_5" />
+                <ScalarProperty Name="Kontrola_4" ColumnName="Kontrola_4" />
+                <ScalarProperty Name="E_mail" ColumnName="E_mail" />
+                <ScalarProperty Name="Pole_pro_typ_služby1" ColumnName="Pole_pro_typ_služby1" />
+                <ScalarProperty Name="PAGE_IMAGES" ColumnName="PAGE_IMAGES" />
+                <ScalarProperty Name="Počet_stránek_dávky" ColumnName="Počet_stránek_dávky" />
+                <ScalarProperty Name="Počet_rozpoznaných_znaků" ColumnName="Počet_rozpoznaných_znaků" />
+                <ScalarProperty Name="Počet_neurčitých_znaků" ColumnName="Počet_neurčitých_znaků" />
+                <ScalarProperty Name="Počet_dokumentů_v_dávce" ColumnName="Počet_dokumentů_v_dávce" />
+                <ScalarProperty Name="Název_definice_dokumentu" ColumnName="Název_definice_dokumentu" />
+                <ScalarProperty Name="Poslední_editor_dokumentu" ColumnName="Poslední_editor_dokumentu" />
+                <ScalarProperty Name="Číslo_dokumentu" ColumnName="Číslo_dokumentu" />
+                <ScalarProperty Name="Čas_vytvoření_dokumentu" ColumnName="Čas_vytvoření_dokumentu" />
+                <ScalarProperty Name="Čas_rozpoznání_dokumentu" ColumnName="Čas_rozpoznání_dokumentu" />
+                <ScalarProperty Name="Čas_poslední_úpravy_dokumentu" ColumnName="Čas_poslední_úpravy_dokumentu" />
+                <ScalarProperty Name="Čas_exportu_dokumentu" ColumnName="Čas_exportu_dokumentu" />
+                <ScalarProperty Name="Kontrola_3" ColumnName="Kontrola_3" />
+                <ScalarProperty Name="Kontrola_2" ColumnName="Kontrola_2" />
+                <ScalarProperty Name="Kontrola_1" ColumnName="Kontrola_1" />
+                <ScalarProperty Name="Overeno" ColumnName="Overeno" />
+                <ScalarProperty Name="Exportovano" ColumnName="Exportovano" />
+                <ScalarProperty Name="Zdroj_obrazu" ColumnName="Zdroj_obrazu" />
+                <ScalarProperty Name="Název_dávky" ColumnName="Název_dávky" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telefonní_číslo" ColumnName="Telefonní_číslo" />
+                <ScalarProperty Name="Počet_osob_v_domácnosti" ColumnName="Počet_osob_v_domácnosti" />
+                <ScalarProperty Name="Datum_narození" ColumnName="Datum_narození" />
+                <ScalarProperty Name="PscNalezeno" ColumnName="PscNalezeno" />
+                <ScalarProperty Name="PSČ" ColumnName="PSČ" />
+                <ScalarProperty Name="MestoNalezeno" ColumnName="MestoNalezeno" />
+                <ScalarProperty Name="Město" ColumnName="Město" />
+                <ScalarProperty Name="Číslo" ColumnName="Číslo" />
+                <ScalarProperty Name="UliceNalezeno" ColumnName="UliceNalezeno" />
+                <ScalarProperty Name="Ulice" ColumnName="Ulice" />
+                <ScalarProperty Name="PrijmeniNalezeno" ColumnName="PrijmeniNalezeno" />
+                <ScalarProperty Name="Příjmení" ColumnName="Příjmení" />
+                <ScalarProperty Name="JmenoNalezeno" ColumnName="JmenoNalezeno" />
+                <ScalarProperty Name="Jméno" ColumnName="Jméno" />
+                <ScalarProperty Name="Oslovení" ColumnName="Oslovení" />
+                <ScalarProperty Name="Titul" ColumnName="Titul" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

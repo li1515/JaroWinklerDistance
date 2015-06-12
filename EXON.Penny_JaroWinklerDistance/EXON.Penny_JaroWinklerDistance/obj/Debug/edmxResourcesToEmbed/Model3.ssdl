@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AdresyCZModel1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="AdresyCZModel1StoreContainer">
+    <EntitySet Name="Adresa" EntityType="AdresyCZModel1.Store.Adresa" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Cast" EntityType="AdresyCZModel1.Store.Cast" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Obec" EntityType="AdresyCZModel1.Store.Obec" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Oblast" EntityType="AdresyCZModel1.Store.Oblast" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Query" EntityType="AdresyCZModel1.Store.Query" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Ulice" EntityType="AdresyCZModel1.Store.Ulice" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Adresa_Ulice" Association="AdresyCZModel1.Store.FK_Adresa_Ulice">
+      <End Role="Ulice" EntitySet="Ulice" />
+      <End Role="Adresa" EntitySet="Adresa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cast_Obec" Association="AdresyCZModel1.Store.FK_Cast_Obec">
+      <End Role="Obec" EntitySet="Obec" />
+      <End Role="Cast" EntitySet="Cast" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Obec_Oblast" Association="AdresyCZModel1.Store.FK_Obec_Oblast">
+      <End Role="Oblast" EntitySet="Oblast" />
+      <End Role="Obec" EntitySet="Obec" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ulice_Cast" Association="AdresyCZModel1.Store.FK_Ulice_Cast">
+      <End Role="Cast" EntitySet="Cast" />
+      <End Role="Ulice" EntitySet="Ulice" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Adresa">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="uliceId" Type="int" Nullable="false" />
+    <Property Name="p" Type="int" />
+    <Property Name="o" Type="nvarchar" MaxLength="10" />
+    <Property Name="e" Type="int" />
+  </EntityType>
+  <EntityType Name="Cast">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="obecId" Type="int" Nullable="false" />
+    <Property Name="nazev" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="kod" Type="int" Nullable="false" />
+    <Property Name="minPsc" Type="int" Nullable="false" />
+    <Property Name="maxPsc" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Obec">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="oblastId" Type="int" Nullable="false" />
+    <Property Name="nazev" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="kod" Type="int" Nullable="false" />
+    <Property Name="muzi" Type="int" Nullable="false" />
+    <Property Name="zeny" Type="int" Nullable="false" />
+    <Property Name="m15" Type="int" Nullable="false" />
+    <Property Name="z15" Type="int" Nullable="false" />
+    <Property Name="minPsc" Type="int" Nullable="false" />
+    <Property Name="maxPsc" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Oblast">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nazev" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="okres" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="kraj" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Query">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="Obce" Type="varchar" MaxLength="50" />
+    <Property Name="minpsc" Type="int" />
+    <Property Name="maxpsc" Type="int" />
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Ulice">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="castId" Type="int" Nullable="false" />
+    <Property Name="nazev" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="kod" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Adresa_Ulice">
+    <End Role="Ulice" Type="AdresyCZModel1.Store.Ulice" Multiplicity="1" />
+    <End Role="Adresa" Type="AdresyCZModel1.Store.Adresa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ulice">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Adresa">
+        <PropertyRef Name="uliceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cast_Obec">
+    <End Role="Obec" Type="AdresyCZModel1.Store.Obec" Multiplicity="1" />
+    <End Role="Cast" Type="AdresyCZModel1.Store.Cast" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Obec">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Cast">
+        <PropertyRef Name="obecId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Obec_Oblast">
+    <End Role="Oblast" Type="AdresyCZModel1.Store.Oblast" Multiplicity="1" />
+    <End Role="Obec" Type="AdresyCZModel1.Store.Obec" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Oblast">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Obec">
+        <PropertyRef Name="oblastId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ulice_Cast">
+    <End Role="Cast" Type="AdresyCZModel1.Store.Cast" Multiplicity="1" />
+    <End Role="Ulice" Type="AdresyCZModel1.Store.Ulice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cast">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Ulice">
+        <PropertyRef Name="castId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+      warning 6013: The table/view 'AdresyCZ.dbo.Table_1' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="Table_1">
+        <Property Name="Obce" Type="varchar" MaxLength="50" />
+        <Property Name="Ulice" Type="varchar" MaxLength="50" />
+        <Property Name="PSC" Type="int" />
+        <Property Name="Kod" Type="varchar" MaxLength="50" />
+        <Property Name="ID" Type="int" />
+      </EntityType>-->
+</Schema>
